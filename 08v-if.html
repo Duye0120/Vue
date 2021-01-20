@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            v-if:通过创建元素和销毁元素达到元素的显式与隐藏
+            v-show:通过display:none/block控制元素的显式与隐藏
+         -->
+        <div v-if="xueli==='博士'">优秀</div>
+        <div v-if="xueli==='研究生'">人才</div>
+        <div v-if="xueli==='本科'">大众</div>
+        <div v-if="xueli==='专科'">继续考</div>
+    </div>
+    <script src="../Vue/node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    xueli: '本科'
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

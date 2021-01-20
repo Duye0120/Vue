@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .current {
+            width: 200px;
+            height:200px;
+            background-color: pink;
+        }
+
+        .wrong {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p :class="className">自然段</p>
+        <p :class="{wrong:isCurrent,current:isWrong}">自然段</p>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    className:'current',
+                    isCurrent:false,
+                    isWrong:false,
+                    width:'200px'
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

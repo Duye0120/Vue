@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in students" :key="item.id">{{index}},{{item.name}},{{item.hobby}}</li>
+        </ul>
+        <div v-for="(v, k) in obj">
+            {{k+'-'+v}}
+        </div>
+    </div>
+    <script src="../Vue/node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    students: [{
+                        id: 1,
+                        name: 'zs',
+                        hobby: 'fish'
+                    }, {
+                        id: 2,
+                        name: 'lisi',
+                        hobby: 'pig'
+                    }, {
+                        id: 3,
+                        name: 'wangwu',
+                        hobby: 'beff'
+                    }],
+                    obj: {
+                        uname: 'zhangsan',
+                        age: 23,
+                        gender: 'male'
+                    }
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

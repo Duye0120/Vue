@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- mvvm view层 -->
+    <div id="app">
+        {{msg}} {{2+5}}
+    </div>
+    <!-- 导入vue -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 相当于viewmodel层
+        let vm = new Vue({
+            el: '#app',
+            // model层
+            data() {
+                return {
+                    msg: 'hello Vue'
+                }
+            }
+        });
+        vm.msg = '1111'; // 数据驱动视图  数据改变  视图自动更新
+    </script>
+</body>
+
+</html>

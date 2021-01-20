@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="../Vue/node_modules/vue/dist/vue.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <form action="">
+            <input type="radio" v-model="sex" value="1"> 男
+            <input type="radio" v-model="sex" value="2">女
+            <input type="checkbox" name="" id="" v-model="skills" value="1">HTML
+            <input type="checkbox" name="" id="" v-model="skills" value="2">CSS
+            <select name="" id="" v-model="city" multiple>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+            </select>
+        </form>
+    </div>
+    <script src="../Vue/node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    uname: '',
+                    sex: 1,
+                    skills:[1],
+                    city:'beijing'
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
