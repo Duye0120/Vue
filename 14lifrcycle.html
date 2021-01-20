@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        {{info}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    info: 'hello'
+                }
+            },
+            beforeCreate() {
+                console.log(this === this);
+                console.log(this.info);
+                console.log('beforeCreated()');
+            },
+            created() {
+                // console.log(this);
+                // console.log(this.info);
+                console.log('created()');
+            },
+            // 挂载前
+            beforeMount() {
+                console.log('beforeMount');
+            },
+            // 挂载后
+            mounted() {
+                console.log('mounted');
+            },
+            beforeUpdate() {
+                console.log(this.info);
+            },
+            updated() {
+                console.log(this.info);
+            },
+        })
+    </script>
 </body>
+
 </html>
