@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{info | upper | lower}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.filter('upper',function(val){
+            return val.toUpperCase();
+        });
+        Vue.filter('lower',function(val){
+            return val.toLowerCase();
+        });
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    info: 'china'
+                }
+            },
+            // 局部的
+            filters:{
+                upper:function(){
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -84,6 +84,69 @@
 ### Vue自定义指令
 
 ```html	
+<body>
+    <div id="app">
+       <input type="text" name="" id="" v-focus>
+    </div>
+    <script src="../Vue/node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 自定义指令
+        Vue.directive('focus',{
+            inserted: function (el){
+                console.log(1111);
+                el.focus();
+            }
+        });
+        let vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    
+                }
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+```
+
+### Vue的过滤器
+
+```html
+<body>
+    <div id="app">
+        {{info | upper | lower}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.filter('upper',function(val){
+            return val.toUpperCase();
+        });
+        Vue.filter('lower',function(val){
+            return val.toLowerCase();
+        });
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    info: 'china'
+                }
+            },
+            // 局部的
+            filters:{
+                upper:function(){
+
+                }
+            }
+        })
+    </script>
+```
+
+### Vue声明周期
+
+```html
 
 ```
 
