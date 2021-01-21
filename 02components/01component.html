@@ -10,12 +10,23 @@
         <my-button></my-button>
         <my-button></my-button>
         <my-button></my-button>
+        <my-component></my-component>
     </div>
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script>
         // 定义全局组件库
+        /*
+            组件定义时，名称可以是短横线也可以是驼峰式
+            1. 假如是驼峰式命名  使用组件的时候 只能用字符串模板中用驼峰式
+            不能在普通的标签模板中，普通的标签模板只能用短横线
+        */
         Vue.component('my-button',{
-            template:'<button @click="increase">普通按钮{{num}}</button>',
+            template:
+            //字符串模板
+            `
+            <button @click="increase">普通按钮{{num}}</button>
+            <my-com></my-com>
+            `,
             data() {
                 return {
                     num:0
@@ -27,6 +38,9 @@
                 }
             },
         });
+        Vue.component('MyComponent',{
+            template:'<h2>MyComp</h2>'
+        })
         new Vue({
             el:'#app',
         })

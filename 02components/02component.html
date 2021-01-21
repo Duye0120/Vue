@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-comp></my-comp>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                'my-comp': {
+                    template:'<div>局部组件</div>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
