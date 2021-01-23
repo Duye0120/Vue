@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :style="{fontSize:fontSize + 'px'} ">内容</div>
+        <menu-item :hobbies='hobbies' :font-size="fontSize" @enlarge-text="handle"></menu-item>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 全局组件
+        Vue.component('menu-item', {
+            props: ['hobbies','fontSize'],
+            data() {
+                return {
+                    fs:0
+                }
+            },
+            template: `
+                <div>
+                    <ul>
+                        <li :key="index" v-for='(item,index) in hobbies'>
+                            {{item}}
+                        </li>
+                    </ul>
+                    <button @click="increaseFS">增大父组字号</button>
+                </div>
+            `,
+            methods: {
+                increaseFS() {
+                    // console.log(this.fontSize);
+                    // this.fs = this.fontSize + 6;
+                    this.$emit('enlarge-text');
+                },
+
+            },
+        })
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    hobbies: ['coding', 'running', 'eating'],
+                    fontSize: 12
+                }
+            },
+            methods: {
+                handle(){
+                    this.fontSize +=6;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
