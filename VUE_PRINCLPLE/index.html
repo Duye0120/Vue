@@ -7,8 +7,9 @@
 </head>
 <body>
     <div id="app">
-        {{a}}  <br>  
-        {{b}}
+        {{a}}   <br>  
+        {{b[0].num}}   <br>
+        {{b[0].num2}}
     </div>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script>
@@ -17,10 +18,18 @@
             data() {
                 return {
                     a:10,
-                    b:[1,2,3]
+                    b:[{
+                        num:10
+                    },2,3]
                 }
             },
         })
+        // vm.b[0].num2 = 100
+
+        /*
+            1 对象新增加的属性 不具有响应式
+            2 对象本存在属性  具有响应式
+        */
     </script>
 </body>
 </html>
