@@ -1,19 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .wrap {
+            width: 300px;
+            margin: auto;
+        }
+
+        .title {
+            height: 40px;
+            background-color: lightblue;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .total {
+            height: 40px;
+            background-color: lightskyblue;
+            line-height: 40px;
+            text-align: right;
+            margin: auto 0;
+        }
+
+        .total span {
+            color: red;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .total button {
+            display: block;
+            float: right;
+            margin: 5px 10px;
+            border: 0;
+            width: 80px;
+            /* vertical-align: middle; */
+            height: 29px;
+            line-height: 29px;
+        }
+
+        .wrap .item {
+            height: 55px;
+            line-height: 55px;
+            position: relative;
+            border-top: 1px solid #add8ea;
+        }
+        .wrap .item img{
+             width: 45px;
+             height: 45px;
+             margin: 5px;
+             background-color: sandybrown;
+        }
+        .wrap .item .name{
+            width: 90px;
+            position: absolute;
+            left: 55px;
+            top: 0;
+            font-size: 16px;
+        }
+        .wrap .item .change{
+            width: 100px;
+            position: absolute;
+            top: 0;
+            right: 50px;
+        }
+        .wrap .item .change a{
+            text-decoration: none;
+            vertical-align: middle;
+            font-size: 20px;
+            width: 30px;
+        }
+        .wrap .item .change .num{
+            width: 40px;
+            height: 25px;
+        }
+        .wrap .item .remove{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+            text-align: center;
+            font-size: 40px;
+            height: 45px;
+            line-height: 45px;
+            right: 4px;
+            color: red;
+        }
+    </style>
 </head>
+
 <body>
     <div id="app">
-
+        <my-cart></my-cart>
     </div>
     <script src="../../node_modules/vue/dist/vue.js"></script>
     <script>
+        // 定义三个组件
+        let CartTitle = {
+            template: `
+                <div class='title'>我的购物车</div>
+            `
+        }
+
+        // 购物车列表
+        let CartList = {
+            template: `
+                <div>
+                    <div class='item'>
+                       <img/>
+                       <div class="name">TCL电视</div> 
+                       <div class="change">
+                            <a href="">-</a>
+                            <input type="text" class = "num">
+                            <a href="">+</a> 
+                        </div>
+                        <div class="remove">x</div>
+                    </div>    
+                </div>
+            `
+        }
+
+        let CartTotal = {
+            template: `
+                <div class='total'>
+                    <span>总价123</span>
+                    <button>结算</button>    
+                </div>
+            `
+        }
+        // 定义购物车组件
+        Vue.component('my-cart', {
+            template: `
+                <div class="wrap">
+                    <cart-title></cart-title>
+                    <cart-list></cart-list>
+                    <cart-total></cart-total>
+                </div>
+            `,
+            components: {
+                'cart-title': CartTitle,
+                'cart-total': CartTotal,
+                'cart-list': CartList
+            }
+        })
         new Vue({
-            el:'#app'
+            el: '#app'
         })
     </script>
 </body>
+
 </html>

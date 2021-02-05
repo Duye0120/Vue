@@ -26,7 +26,7 @@
 
 - `v-html`:把数据填充到标签  支持标签  谨慎使用
 - `v-text`:把数据填充到标签
-- `v-pre` :显示原始信息
+- `v-pre`    :显示原始信息
 - `v-once`:给标签只绑定数据一次，后面数据发生改变 标签的内容不会发生变换
 - `v-model`: 双向数据绑定   视图改变影像数据 数据改变影像视图
 - `v-bind`：绑定属性 单向
@@ -41,7 +41,7 @@
         <ul>
             <li v-for="(item, index) in students" :key="item.id">
                 {{index}},{{item.name}},{{item.hobby}}
-			</li>
+            </li>
         </ul>
         <div v-for="(v, k) in obj">
             {{k+'-'+v}}
